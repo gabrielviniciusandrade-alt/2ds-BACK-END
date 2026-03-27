@@ -1,0 +1,39 @@
+const produtos = ['Chuteira Society', 'Bola de Futebol de Campo', 'Caneleiras', 'Luvas de Goleiro', 'Bomba de Ar', 'Bola de Vôlei Indoor', 'Joelheiras', 'Rede de Vôlei', 'Manguitos', 'Tênis de Quadra']
+const valores = ['R$ 220,00', 'R$ 130,00', 'R$ 45,00', 'R$ 110,00', 'R$ 35,00', 'R$ 160,00', 'R$ 85,00', 'R$ 120,00', 'R$ 50,00', 'R$ 350,00']
+const estoques = [15, 24, 40, 12, 50, 35, 8, 22, 10, 14] 
+
+
+function mostrarESTOQUE() {
+    let contador = 0 
+    while(contador < produtos.length) {
+        console.log(produtos[contador] + " - " + valores[contador] + " - " + estoques[contador]) 
+        contador++
+    }
+}
+
+function removerPRODUTO() {
+    
+    produtos.pop();
+    valores.pop();
+    estoques.pop();
+}
+
+function adicionarPRODUTO(produto, valor, estoque) { 
+    produtos.push(produto)
+    valores.push(`R$ ${valor},00`) 
+    estoques.push(estoque) 
+} 
+
+mostrarESTOQUE() 
+
+adicionarPRODUTO("Camisa Oficial", 199, 25) 
+
+console.log("-----------------------------------") 
+
+mostrarESTOQUE()
+
+removerPRODUTO()
+
+console.log("-----------------------------------") 
+
+mostrarESTOQUE()
