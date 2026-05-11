@@ -60,7 +60,7 @@
             nome: "Bola de Vôlei Indoor",
             marca: "Mikasa",
             preco: 160,
-            qualidade: "Premium",
+            qualidade: "Premiualunosm",
             estoque: "18 unidades",
             categoria: "Equipamentos"
         },
@@ -69,7 +69,7 @@
             marca: "Asics",
             preco: 85,
             qualidade: "Alta",
-            estoque: "35 unidades",
+            estoque: "777 unidades",
             categoria: "Proteção"
         },
         {
@@ -109,11 +109,67 @@
         const produtosArquivo = require("./produtos.json")
         console.log(produtosArquivo)
 
-        alunosArquivo.forEach((aluno)=>{
-            console.log(aluno.nome + 
-                " - Data de nascimento: " + aluno.dt_nasc + 
-                " - Série favorita: " + aluno.serie_fav)
-                " - Data de nascimento: " + aluno.dt_nasc + 
-                " - Série favorita: " + aluno.serie_fav)
-                " - Data de nascimento: " + aluno.dt_nasc + 
-                " - Série favorita: " + aluno.serie_fav)
+        produtosArquivo.forEach((produtos)=>{
+            console.log(produtos.nome + 
+                " - marca: " + produtos.marca + 
+                " - preco: " + produtos.preco +
+                " - qualidade: " + produtos.qualidade + 
+                " - estoque: " + produtos.estoque +
+                " - categoria: " + produtos.categoria)
+            })
+        // Adiciona um novo Produto
+      function AdicionaProduto(nome, marca, preco, qualidade, estoque, categoria){
+          
+            const existe = produtosArquivo.some
+            produtos.nome == nome
+
+        if(existe == true){
+        console.log("O produto esportivo " + nome + " já está no estoque")
+            
+          }else{
+            produtos.push({
+                nome: nome,
+                marca:marca,
+                preco: preco,
+                qualidade: qualidade,
+                estoque: estoque,
+                categoria: categoria})
+                console.log("O produto esportivo " + nome + " foi adicionado ao estoque com sucesso")
+        }
+      }
+
+      AdicionaProduto("taco de beisebol", "dodgers", 1537.37, "alta", "5 unidades", "equipamentos")
+
+      console.log("\n _________________________________________________________________ \n")
+
+    function filtrar(filtrando){
+        console.log("\n\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+        console.log("&&&&&&&&&& PRODUTOS COM PREÇO IGUAL OU MENOR QUE " + filtrando + " &&&&&&&&&&")
+        console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n ")  
+        const filtro = produtos.filter((produto)=> produto.preco <= filtrando)
+        console.log(filtro)
+    }
+    filtrar(1500)
+
+    function AplicaDesconto(desc){
+         console.log("\n _________________________________________________________________ \n")
+        console.log("\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+        console.log("&&&&&&&&&& PRODUTOS COM DESCONTO DE " + (desc * -100 + 100) +  "% DE DESCONTO &&&&&&&&&")
+        console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n")
+        const desconto = produtos.map((produto)=> {return {...produto, preco: produto.preco * desc}})
+        console.log(desconto)
+      }
+
+    AplicaDesconto(0.80)
+
+    function Encontra(marca){
+        console.log("\n _________________________________________________________________\n")
+        console.log("\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+        console.log("&&&&&&&&&& PRODUTOS DA MARCA: " + marca + " &&&&&&&&&&")
+        console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n")
+        const encontrar = produtos.find((produto)=> produto.marca == marca)
+            console.log(encontrar)
+      }
+
+    Encontra("Nike")
+        console.log("\n _________________________________________________________________")
